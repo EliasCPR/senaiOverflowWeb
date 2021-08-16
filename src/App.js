@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+
+function Page1(){
+  return <h1>Está é a pagina 1 Dale!!!</h1>
+}
+
+function Page2(){
+  return <h1>Está é a pagina 2</h1>
+}
+
 
 function App() {
+
+  let currentPage = 1;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        currentPage === 1 ? <Page1/> : <Page2/>
+      }
+      
     </div>
   );
 }
