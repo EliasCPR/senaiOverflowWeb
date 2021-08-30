@@ -3,8 +3,8 @@ import { FaSignOutAlt } from "react-icons/fa";
 
 export const Container = styled.header`
     width: 100vw;
-    height: 60px;
     position: fixed;
+    height: 60px;
     top: 0;
 
     background-color: var(--primary);

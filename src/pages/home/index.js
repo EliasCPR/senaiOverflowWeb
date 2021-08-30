@@ -1,74 +1,80 @@
-import Coments from "../../components/Coments";
-import Header from "../../components/header";
+import Header from "../../components/Header";
+import Comments from "../../components/Comments";
 import { FeedContainer, GistIcon, Main, Post } from "./styles";
 
-
-
-
 function Home() {
+
+    const posts = [{
+        author: {
+            name: "Fulano",
+        },
+        crated_at: "10/10/2021",
+        title: "Este é um post sobre js",
+        image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+        gist: "https://githuv.com.br/",
+        categories: [
+            "JS", "Back-end", "Express"
+        ],
+        coments: [
+            {
+                author: {
+                    name: "ciclano",
+                },
+                created_at: "11/10/2021",
+                description: "Realmente Js é muito legal"
+            }
+        ]
+    }]
+
     return (
         <>
             <Header />
             <Main>
                 <nav>
-
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
                 </nav>
                 <FeedContainer>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
-                    <PostCard/>
+                    {posts.map(post => < PostCard post={post}/>)}
                 </FeedContainer>
                 <aside>
-
+                    Actions
                 </aside>
             </Main>
         </>
     );
 }
 
-export default Home;
-
-function PostCard() {
+function PostCard({ post }) {
     return (
-
         <Post>
             <header>
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
                 <div>
                     <strong>
-                        por fulano de tal
+                        por {post.author.name}
                     </strong>
                     <p>
-                        em 18/08/2021 às 08:23
+                        {post.created_at}
                     </p>
                 </div>
-                <GistIcon />
+                {post.gist && <GistIcon />}
             </header>
             <main>
                 <div>
-                    <h1>Título</h1>
-                    <p>Descrição da postagem bla bla bla</p>
+                    <h1>{post.title}</h1>
+                    <p>{post.description}</p>
                 </div>
                 <img src="https://images.ecycle.com.br/wp-content/uploads/2021/05/20195924/o-que-e-paisagem.jpg.webp" />
                 <section>
-                    <p>Front-end</p>
-                    <p>javscript</p>
-                    <p>css</p>
+                    {post.categories.map(category => <p>{category}</p>)}
                 </section>
-
-
-
             </main>
             <footer>
-                <h2>
-                    Comentários
-                </h2>
-
-                <Coments />
+                <h2>Comentários</h2>
+                {post.coments.map(coment => <Comments coment={coment} />)}
             </footer>
         </Post>
     );
 }
 
+export default Home;
