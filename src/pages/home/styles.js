@@ -40,6 +40,13 @@ export const Main = styled.main`
             margin-left: auto;
             margin-right: auto;
          }
+
+         >p{
+             font-size: 18px;
+             color: #000;
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: 600;
+         }
     }
 
 `;

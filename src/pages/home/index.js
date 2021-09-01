@@ -32,6 +32,10 @@ function Home() {
             <Main>
                 <nav>
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+
+                <p>Santos Oliveira</p>
+                <p>R.A:0001006655223</p>
+                <p>user@email.com</p>
                 </nav>
                 <FeedContainer>
                     {posts.map(post => < PostCard post={post}/>)}
