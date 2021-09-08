@@ -10,7 +10,8 @@ export const Container = styled.div`
 
 export const FormContainer = styled.form`
     width: 500px;
-    padding:30px;
-
-    box-shadow: 0 0 20px #00000055;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px #00000055;
 `;

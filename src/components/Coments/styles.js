@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
-    
     width: 100%;
     margin-top: 5px;
-    box-shadow: 0px 10px 20px rgba(0,0,0,0.25);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.25);
     padding: 10px;
 
-    >header{
+    > header{
         display: flex;
         align-items: center;
         gap: 5px;
@@ -19,6 +17,7 @@ export const Container = styled.div`
             height: 30px;
             border-radius: 50%;
         }
+
         > p {
             font-size: 14px;
         }
@@ -29,5 +28,4 @@ export const Container = styled.div`
         padding: 10px 0px 10px 12px;
         border-left: 2px solid var(--primary);
     }
-
 `;
