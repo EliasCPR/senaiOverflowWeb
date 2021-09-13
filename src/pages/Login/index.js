@@ -1,9 +1,14 @@
 import { Container, FormContainer } from "./styles";
 import Input from "../../components/Input";
 import { useState } from "react";
-import { api } from "../../components/Services/api";
+import { api } from "../../services/api";
+import {signIn} from"../../services/security"
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 
 function Login (){
+
+    const history = useHistory();
     
     const [formLogin, setformLogin] = useState({
         email: "",
@@ -22,7 +27,10 @@ function Login (){
                 email: formLogin.email,
                 password: formLogin.senha
             });
-            console.log(response.data)
+            signIn(response.data);
+            history.push("/home")
+            
+            
         } catch (error) {
             console.log(error.response.data);
         }
@@ -30,11 +38,14 @@ function Login (){
     return (
         <Container>
             <FormContainer onSubmit={handleSubmit}>
-                <h1>Bem-Vindo ao</h1>
+                <h1>Bem-vindo ao</h1>
                 <h1>SENAI-Overflow</h1>
-                <Input label="E-mail" id="email" type="email" required handler={handleInput}/>
-                <Input label="Senha" id="senha" type="password" required handler={handleInput}/>
+                <Input label="E-mail" required
+                    type="email" id="email" handler={handleInput} />
+                <Input label="Senha" required
+                    type="password" id="senha" handler={handleInput} />
                 <button>Entrar</button>
+                <Link to="/register">Cadastre-se</Link>
             </FormContainer>
         </Container>
     );

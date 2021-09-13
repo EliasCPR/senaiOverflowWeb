@@ -4,4 +4,4 @@ export const api = axios.create({
     baseURL: "http://localhost:3333"
 });
 
-api.post("/sessions")
+// api.post("/sessions")
